@@ -36,3 +36,111 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar-text {
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 23px;
+
+}
+
+.grey-text{
+  color: #7a7b7e;
+}
+
+.card-img{
+  opacity: 78%;
+}
+
+.title-text{
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 100px;
+  text-shadow: 2px 2px 4px black;
+}
+
+.title-text-med{
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 60px;
+  text-shadow: 2px 2px 4px black;
+  margin-top: 87px;
+}
+
+.card-text1{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  text-shadow: 2px 2px 4px black;
+
+}
+.card-text-min{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  text-shadow: 2px 2px 4px black;
+
+}
+
+.card-text-med{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 23px;
+  text-shadow: 2px 2px 4px black;
+
+}
+
+.home-card{
+  border: white;
+  border-radius: 0%;
+}
+
+.turq-text{
+  color: rgb(39, 243, 199);
+}
+
+.purple-text{
+  color: rgb(226, 39, 243);
+}
+
+.row-text{
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 45px;
+  
+}
+
+.detailed-card-text{
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px !important;
+
+}
+
+.detailed-card-text1{
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px !important;
+
+}
+
+.detailed-card-text2{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px !important;
+
+}
+
+.card-bg{
+  background-color: rgb(60, 7, 65) !important ;
+}
