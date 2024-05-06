@@ -211,3 +211,55 @@
   color:  rgb(15, 15, 15);
 
 }
+
+.login-page{
+  background-image: url("/public/loginpage.png");
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.card-container {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-container .card {
+  background-color: rgba(87, 2, 90, 0.719) !important;  /* Un bel viola */
+  color: rgba(20, 20, 20, 0.925);
+  padding: 20px; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  width: 50vh;
+  border: none;
+}
+
+.login-title{
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 70px !important;
+  color:  rgb(255, 255, 255) !important;
+  text-shadow: 2px 2px 4px  rgb(15, 15, 15);
+
+}
+
+.title-font{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 25px !important ;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px  rgb(15, 15, 15);
+
+}
+
+.login-button {
+  font-size: 20px !important;
+  font-family: "Jersey 15", sans-serif !important;
+}

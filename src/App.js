@@ -1,26 +1,18 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import TopNavbar from './components/TopNavbar';
-import AboutUs from './components/AboutUs';
-import LastReleases from './components/LastReleases';
-import CarouselHome from './components/CarouselHome';
-import WrittenSection from './components/WrittenSection';
-import NewReleases from './components/NewReleases';
-import Footer from './components/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'; 
+import LoginPage from './components/LoginPage';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
     <div className="App">
-
-       <TopNavbar/>
-       <AboutUs/>
-       <LastReleases/>
-       <CarouselHome/>
-       <WrittenSection/>
-       <NewReleases/>
-       <Footer/>
-    
-
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} exact />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

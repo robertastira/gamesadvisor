@@ -22,8 +22,7 @@ function Footer() {
         <Row>
         <Col><p className='footer-text1'>Staff e Contatti</p>
         <p className='footer-text1'>Lavora con Noi</p>
-        <p className='footer-text1'>Pubblicità</p>
-        <p className='footer-text1'>Il nostro Team</p></Col>
+        </Col>
         <Col><p className='footer-text1'>Privacy, Termini e Condizioni</p>
         <p className='footer-text1'>Cookie Policy</p></Col>
         </Row>
