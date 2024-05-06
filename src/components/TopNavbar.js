@@ -12,10 +12,10 @@ function TopNavbar() {
       <Navbar.Brand href="#home" class="navbar-text">
             <img
               src="/logo.png"
-              width="70"
-              height="70"
+              width="50"
+              height="50"
               className="d-inline-block align-top"
-              alt="React Bootstrap logo"
+              alt="Logo"
             />
           </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />

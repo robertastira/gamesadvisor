@@ -41,7 +41,8 @@
   font-family: "Jersey 15", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 23px;
+  font-size: 20px;
+  color: rgb(15, 15, 15);
 
 }
 
@@ -58,7 +59,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 100px;
-  text-shadow: 2px 2px 4px black;
+  text-shadow: 2px 2px 4px rgb(60, 7, 65);
 }
 
 .title-text-med{
@@ -66,7 +67,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 60px;
-  text-shadow: 2px 2px 4px black;
+  text-shadow: 2px 2px 4px  rgb(15, 15, 15);
   margin-top: 87px;
 }
 
@@ -75,7 +76,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 30px;
-  text-shadow: 2px 2px 4px black;
+  text-shadow: 2px 2px 4px  rgb(15, 15, 15);
 
 }
 .card-text-min{
@@ -83,7 +84,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
-  text-shadow: 2px 2px 4px black;
+  text-shadow: 2px 2px 4px  rgb(15, 15, 15);
 
 }
 
@@ -92,7 +93,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 23px;
-  text-shadow: 2px 2px 4px black;
+  text-shadow: 2px 2px 4px  rgb(15, 15, 15);
 
 }
 
@@ -113,15 +114,18 @@
   font-family: "Jersey 15", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 45px;
+  font-size: 50px;
+  text-shadow: 2px 2px 4px  rgb(39, 243, 199);
   
 }
 
 .detailed-card-text{
+  background-color: rgb(60, 7, 65) !important;
   font-family: "Jersey 15", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 40px !important;
+  text-shadow: 2px 2px 4px  rgb(15, 15, 15);
 
 }
 
@@ -130,6 +134,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 22px !important;
+  text-shadow: 2px 2px 4px  rgb(15, 15, 15);
 
 }
 
@@ -138,9 +143,71 @@
   font-weight: 400;
   font-style: normal;
   font-size: 18px !important;
+  text-shadow: 2px 2px 4px  rgb(15, 15, 15);
 
 }
 
 .card-bg{
   background-color: rgb(60, 7, 65) !important ;
+  background-image: url("/public/bg3.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+}
+
+.container-bg{
+  background-image: url("/public/doublebg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+}
+
+.carousel-text{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  color:  rgb(15, 15, 15);
+  text-shadow: 2px 2px 4px rgb(39, 243, 199);
+
+}
+
+.minicard-text{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  color:  rgb(15, 15, 15);
+  text-shadow: 2px 2px 4px rgb(197, 31, 108);
+
+}
+
+.minicard-text1{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+
+}
+
+
+.footer-text{
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 17px;
+  color:  rgb(15, 15, 15);
+
+}
+
+.footer-text1{
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 13px;
+  color:  rgb(15, 15, 15);
+
 }
