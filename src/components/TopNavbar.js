@@ -27,7 +27,6 @@ function TopNavbar() {
             navbarScroll
           >
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#games">Games</Nav.Link>
             <NavDropdown title="Links" id="navbarScrollingDropdown" className='grey-text'>
               <NavDropdown.Item href="#news">News</NavDropdown.Item>
               <NavDropdown.Item href="#lastreviewed">

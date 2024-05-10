@@ -33,7 +33,8 @@ function LoginPage() {
           </Form>
         </Card.Body>
       </Card>
-    </div></Col>
+    </div>
+    </Col>
       </Row>
     </Container>
   );

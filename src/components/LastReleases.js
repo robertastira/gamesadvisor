@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 function LastReleases() {
   return (
@@ -142,7 +143,7 @@ Private Division</span>
       <Card.Text className='detailed-card-text1'>
          EDITORE: <span className='detailed-card-text2'>2K Games</span>
       </Card.Text>
-      <Button variant="outline-light">D E T A I L S</Button>
+      <Link to="/details"><Button variant="outline-light">D E T A I L S</Button></Link>
       </Card.Body>
     </Card></Col>
       </Row>

@@ -1,37 +1,43 @@
-import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/Navbar';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-class FormRicerca extends React.Component {
-  render() {
-    return (
-        <Container className="d-flex justify-content-center align-items-center">
+function FormExample() {
+  return (
+    <Container>
+        <p className='search-font mt-2'><img
+              src="/logo.png"
+              width="50"
+              height="50"
+              className="d-inline-block mb-1"
+              alt="Logo"
+            />SEARCH UR GAME<img
+            src="/logo.png"
+            width="50"
+            height="50"
+            className="d-inline-block mb-1"
+            alt="Logo"
+          /></p>
+    <Navbar className="navbar-bg justify-content-center p-2">
+
+      <Form inline>
         <Row>
-          <Col>
-            <Form inline>
-              <Form.Group controlId="gameName" className="mr-3">
-                <Form.Label className="mr-2">Nome Gioco</Form.Label>
-                <Form.Control type="text" placeholder="Inserisci il nome del gioco" />
-              </Form.Group>
-      
-              <Form.Group controlId="gameGenre" className="mr-3">
-                <Form.Label className="mr-2">Genere</Form.Label>
-                <Form.Control type="text" placeholder="Inserisci il genere" />
-              </Form.Group>
-      
-              <Form.Group controlId="releaseYear" className="mr-3">
-                <Form.Label className="mr-2">Anno di Uscita</Form.Label>
-                <Form.Control type="text" placeholder="Inserisci l'anno di uscita" />
-              </Form.Group>
-      
-              <Button variant="primary" type="submit">
-                Cerca
-              </Button>
-            </Form>
+
+          <Col xs="auto">
+            <Form.Control
+              type="text"
+              placeholder=". . . "
+              className="d-inline-block custom-search"
+            />
           </Col>
+          <Col><Button variant="dark" className='login-button d-inline-block'>C E R C A</Button></Col>
         </Row>
-      </Container>
-    );
-  }
+      </Form>
+    </Navbar>
+    </Container> );
 }
 
-export default FormRicerca;
+export default FormExample;
