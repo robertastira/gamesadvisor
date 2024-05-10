@@ -29,12 +29,12 @@ function TopNavbar() {
             <Nav.Link href="#home">Home</Nav.Link>
             <NavDropdown title="Links" id="navbarScrollingDropdown" className='grey-text'>
               <NavDropdown.Item href="#news">News</NavDropdown.Item>
-              <NavDropdown.Item href="#lastreviewed">
+              <Link to="/lastreviewed"><NavDropdown.Item href="#lastreviewed">
                 Last Reviews
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#newreleases">
+              </NavDropdown.Item></Link>
+              <Link to="/lastreleases"><NavDropdown.Item href="#newreleases">
                 Last Releases
-              </NavDropdown.Item>
+              </NavDropdown.Item></Link>
             </NavDropdown>
             <Nav.Link href="#aboutus">About Us</Nav.Link>
           </Nav>
