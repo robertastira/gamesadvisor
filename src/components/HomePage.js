@@ -7,6 +7,8 @@ import NewReleases from './NewReleases';
 import Footer from './Footer';
 import Container from 'react-bootstrap/Container';
 import FormRicerca from './FormRicerca';
+import CardGames from './CardGames'
+import CardGames2 from './CardGames2'
 
 
 function HomePage() {
@@ -15,10 +17,10 @@ function HomePage() {
 <TopNavbar/>
 <AboutUs/>
 <FormRicerca/>
-<LastReleases/>
+<CardGames2/>
 <CarouselHome/>
 <WrittenSection/>
-<NewReleases/>
+<CardGames/>
 <Footer/>
 </Container>
     )

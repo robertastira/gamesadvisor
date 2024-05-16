@@ -15,7 +15,7 @@ function App() {
           <Route path="/" element={<HomePage />} exact />
           <Route path="/lastreleases" element={<LastReleasePage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/details" element={<DetailsPage />} />
+          <Route path="/details/:gameId" element={<DetailsPage />} />
           <Route path="/lastreviewed" element={<LastReviewedPage />} />
         </Routes>
       </BrowserRouter>
