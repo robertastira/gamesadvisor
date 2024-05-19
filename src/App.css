@@ -42,12 +42,12 @@
   font-weight: 400;
   font-style: normal;
   font-size: 20px;
-  color: rgb(15, 15, 15);
+  color: rgb(255, 255, 255) !important;
 
 }
 
 .grey-text{
-  color: #7a7b7e;
+  color: #ffffff !important;
 }
 
 .card-img{
@@ -115,7 +115,8 @@
   font-weight: 400;
   font-style: normal;
   font-size: 50px;
-  text-shadow: 2px 2px 4px  rgb(39, 243, 199);
+  text-shadow: 1px 1px 2px  rgb(255, 255, 255);
+  color: rgb(95, 95, 95);
   
 }
 
@@ -148,11 +149,13 @@
 }
 
 .card-bg{
-  background-color: rgb(60, 7, 65) !important ;
-  background-image: url("/public/bg3.png");
+  background: linear-gradient(to bottom, rgba(79, 22, 126, 0.8), rgba(33,37,41,255)); /* Gradient from light purple to transparent */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
+  border: none !important; 
+  border-radius: 0 !important; 
+  box-shadow:  2px 2px 4px  #4e4e4e56 !important;
 
 }
 
@@ -381,3 +384,26 @@
   font-size: 18px;
 }
 
+.about-us-bg{
+  background-image: url("/public/cropimg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 80vh; 
+}
+
+.navbar-text .nav-link,
+.navbar-text .dropdown-item {
+  color: #b1b0b0 !important;
+  font-size: 20px;
+}
+
+.heart-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.heart-icon.liked::before {
+  content: "\2665"; 
+  color: rgb(97, 3, 69); 
+}

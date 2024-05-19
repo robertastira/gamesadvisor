@@ -1,14 +1,14 @@
 import TopNavbar from './TopNavbar';
 import AboutUs from './AboutUs';
-import LastReleases from './LastReleases';
 import CarouselHome from './CarouselHome';
 import WrittenSection from './WrittenSection';
-import NewReleases from './NewReleases';
 import Footer from './Footer';
 import Container from 'react-bootstrap/Container';
-import FormRicerca from './FormRicerca';
+import Row from 'react-bootstrap/Row';
 import CardGames from './CardGames'
 import CardGames2 from './CardGames2'
+import Col from 'react-bootstrap/Col';
+import WrittenSection2 from './WrittenSection2';
 
 
 function HomePage() {
@@ -16,12 +16,18 @@ function HomePage() {
 <Container fluid>
 <TopNavbar/>
 <AboutUs/>
-<FormRicerca/>
-<CardGames2/>
+<Row>
+<Col><CardGames2/>
 <CarouselHome/>
-<WrittenSection/>
-<CardGames/>
+</Col>
+</Row>
+<Row>
+<Col><WrittenSection/>
+<WrittenSection2/>
+</Col>
+<Col><CardGames/></Col>
 <Footer/>
+</Row>
 </Container>
     )
 }

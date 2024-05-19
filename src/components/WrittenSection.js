@@ -12,12 +12,12 @@ const WrittenSection = () => {
   const [lastReviewed, setLastReviewed] = useState([]);
 
   useEffect(() => {
-    fetch(`${RAWG_API}&ordering=-ratings_count&page_size=10`)
+    fetch(`${RAWG_API}&ordering=-ratings_count&page_size=15`)
       .then(response => response.json())
       .then(data => setMostReviewed(data.results))
       .catch(error => console.log(error));
 
-    fetch(`${RAWG_API}&ordering=-updated&page_size=10`)
+    fetch(`${RAWG_API}&ordering=-updated&page_size=15`)
       .then(response => response.json())
       .then(data => setLastReviewed(data.results))
       .catch(error => console.log(error));
@@ -34,7 +34,7 @@ const WrittenSection = () => {
 
   return (
     <Container>
-      <Row className='mt-4'>
+      <Row>
         <Col>
           <h3 className='row-text'>Most Reviewed</h3>
           <Table striped bordered hover>

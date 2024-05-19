@@ -9,7 +9,7 @@ import LastReviewedPage from './components/LastReviewedPage';
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-dark App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} exact />
