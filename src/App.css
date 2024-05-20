@@ -483,24 +483,24 @@
   box-shadow:  2px 2px 4px  #4e4e4e56 !important;
 }
 
-.carousel-item {
-  height: 300px; 
+.carousel-item1 {
+  height: 350px; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
 
-.carousel-item strong {
+.carousel-item1 strong {
   font-size: 1.25rem;
 }
 
-.carousel-item p {
+.carousel-item1 p {
   font-size: 1rem;
   margin-top: 10px;
 }
 
-.carousel-item footer {
+.carousel-item1 footer {
   margin-top: 20px;
   font-size: 0.9rem;
   color: #ccc;
