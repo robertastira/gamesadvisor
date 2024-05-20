@@ -55,7 +55,7 @@ function DetailsPage() {
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
-                console.log('YouTube Search:', data); // Debugging log
+                console.log('YouTube Search:', data); 
                 const videoId = data.items[0].id.videoId;
                 const url = `https://www.youtube.com/embed/${videoId}`;
                 setVideoUrl(url);
@@ -102,7 +102,7 @@ function DetailsPage() {
                                 </div>
                             ))}
                             {visibleReviews < reviews.length && (
-                                <Button variant="primary" onClick={showMoreReviews}>Vedi altre</Button>
+                                <Button variant="outline-light mt-4" onClick={showMoreReviews}>SHOW</Button>
                             )}
                         </div>
                     </Col>

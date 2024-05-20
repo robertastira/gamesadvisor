@@ -13,9 +13,10 @@ const formattedCurrentDate = currentDate.toISOString().split('T')[0];
 
 const GAMES_API = `https://api.rawg.io/api/games?key=${API_KEY}&dates=${formattedTwoYearsAgo},${formattedCurrentDate}&platforms=18,1,7&ordering=-released&page_size=${PAGE_SIZE}`;
 
-function App() {
+function LastReleases() {
   const [games, setGames] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchGenre, setSearchGenre] = useState('');
   const [selectedGame, setSelectedGame] = useState(null);
   const [selectedGameDetails, setSelectedGameDetails] = useState(null);
 
@@ -30,6 +31,10 @@ function App() {
     setSearchTerm(event.target.value);
   };
 
+  const handleGenreSearch = (event) => {
+   setSearchGenre(event.target.value);
+ };
+
   const handleCardClick = (game) => {
     setSelectedGame(game);
     fetchGameDetails(game.id);
@@ -43,8 +48,10 @@ function App() {
   };
 
   const filteredGames = games.filter(game =>
-    game.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+   game.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+   (searchGenre === '' || game.genres.some(genre => genre.name.toLowerCase().includes(searchGenre.toLowerCase())))
+ );
+
 
   const recentGames = filteredGames.filter(game => {
     const releaseDate = new Date(game.released);
@@ -58,7 +65,7 @@ function App() {
       <Container>
         <Row>
           <Col md={8}>
-            <h2>Giochi più recenti</h2>
+            <h2 className='review-card-text'>Last Releases</h2>
             <Row className="d-flex">
               {recentGames.map(game => (
                 <Col key={game.id} sm={6} md={4} className="d-flex align-items-stretch mb-4">
@@ -77,13 +84,6 @@ function App() {
                       <Card.Text className='detailed-card-text1'>
                         RELEASE DATE: <span className='detailed-card-text2'>{new Date(game.released).toLocaleDateString()}</span>
                       </Card.Text>
-                      {selectedGameDetails && (
-                        <>
-                          <Card.Text className='detailed-card-text3 pt-4'>Genre: {selectedGameDetails.genres?.map(genre => genre.name).join(', ')}</Card.Text>
-                          <Card.Text className='detailed-card-text3 mt-2'>Developing: {selectedGameDetails.developers?.map(developer => developer.name).join(', ')}</Card.Text>
-                          <Card.Text className='detailed-card-text3 mt-2'>Multiplayer/Single Player: {selectedGameDetails.multiplayer ? 'Multiplayer' : 'Single Player'}</Card.Text>
-                        </>
-                      )}
                       <Link to={`/details/${game.id}`}><Button variant="outline-light" className="mt-auto">D E T A I L S</Button></Link>
                     </Card.Body>
                   </Card>
@@ -92,35 +92,49 @@ function App() {
             </Row>
           </Col>
           <Col md={4}>
+          <h2 className='review-card-text'>Search</h2>
             <Form>
+            <h2 className='minicard-text1'>Search by name</h2>
               <Form.Group className="mb-3" controlId="searchGame">
-                <Form.Label>Ricerca per nome</Form.Label>
+                <Form.Label>Name of the game</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Inserisci il nome del gioco"
+                  placeholder="Name of the game"
                   value={searchTerm}
                   onChange={handleSearch}
                 />
               </Form.Group>
             </Form>
+            <Form className='mt-4'>
+            <h2 className='minicard-text1'>Search by genre</h2>
+              <Form.Group className="mb-3" controlId="searchGenre">
+                <Form.Label>Genre of the game</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Genre of the game"
+                  value={searchGenre}
+                  onChange={handleGenreSearch}
+                />
+              </Form.Group>
+            </Form>
             {selectedGameDetails && (
-              <Card className="mt-4">
+              <Card className="purple-paragraph detailed-card-text3 text-white mt-4">
                 <Card.Body>
-                  <Card.Title>{selectedGame?.name}</Card.Title>
+                  <Card.Title className='review-card-text'>{selectedGame?.name}</Card.Title>
                   <Card.Text>
-                    <strong>Release Date:</strong> {new Date(selectedGame?.released).toLocaleDateString()}
+                    Release Date: {new Date(selectedGame?.released).toLocaleDateString()}
                   </Card.Text>
                   <Card.Text>
-                    <strong>Publisher:</strong> {selectedGameDetails.publishers?.map(publisher => publisher.name).join(', ') || 'N/A'}
+                    Publisher: {selectedGameDetails.publishers?.map(publisher => publisher.name).join(', ') || 'N/A'}
                   </Card.Text>
                   <Card.Text>
-                    <strong>Description:</strong> {selectedGameDetails.description_raw || 'No description available.'}
+                    <div>Description:</div> {selectedGameDetails.description_raw || 'No description available.'}
                   </Card.Text>
                   <Card.Text>
-                    <strong>Genre:</strong> {selectedGameDetails.genres?.map(genre => genre.name).join(', ') || 'N/A'}
+                    Genre: {selectedGameDetails.genres?.map(genre => genre.name).join(', ') || 'N/A'}
                   </Card.Text>
                   <Card.Text>
-                    <strong>Platform:</strong> {selectedGameDetails.platforms?.map(platform => platform.platform.name).join(', ') || 'N/A'}
+                  Platform:{selectedGameDetails.platforms?.map(platform => platform.platform.name).join(', ') || 'N/A'}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -132,6 +146,6 @@ function App() {
   );
 }
 
-export default App;
+export default LastReleases;
 
 
