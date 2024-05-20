@@ -11,7 +11,7 @@ const StarRating = () => {
 
   return (
     <div>
-      <h2 className='login-title'>Rate This Game:</h2>
+      <h2 className='title-details'>Rate This Game:</h2>
       {[...Array(5)].map((_, index) => (
         <Button
           key={index}
@@ -22,7 +22,7 @@ const StarRating = () => {
           {index < rating ? <BsStarFill /> : <BsStar />}
         </Button>
       ))}
-      <p className='title-font'>You rated this game {rating} stars</p>
+      <p className='title-font mt-2'>You rated this game {rating} stars</p>
     </div>
   );
 };
