@@ -102,7 +102,7 @@ function MostReviewed() {
                 <Form.Label>Name of the game</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Name of the game"
+                  placeholder=". . ."
                   value={searchTerm}
                   onChange={handleSearch}
                 />
@@ -114,7 +114,7 @@ function MostReviewed() {
                 <Form.Label>Genre of the game</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Genre of the game"
+                  placeholder=". . ."
                   value={searchGenre}
                   onChange={handleGenreSearch}
                 />

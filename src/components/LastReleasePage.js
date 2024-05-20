@@ -96,10 +96,10 @@ function LastReleases() {
             <Form>
             <h2 className='minicard-text1'>Search by name</h2>
               <Form.Group className="mb-3" controlId="searchGame">
-                <Form.Label>Name of the game</Form.Label>
+                <Form.Label>...</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Name of the game"
+                  placeholder=". . ."
                   value={searchTerm}
                   onChange={handleSearch}
                 />
@@ -111,7 +111,7 @@ function LastReleases() {
                 <Form.Label>Genre of the game</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Genre of the game"
+                  placeholder=". . ."
                   value={searchGenre}
                   onChange={handleGenreSearch}
                 />
