@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Container, Row, Col, Form } from 'react-bootstrap';
 import TopNavbar from './TopNavbar';
 import { Link } from 'react-router-dom';
+import YouTubeVideos from './YoutubeVideos';
 
 const API_KEY = '0faeb51fade34fd39d9f8912acddcb2d';
 const PAGE_SIZE = 50;
@@ -96,7 +97,7 @@ function AllGames() {
             </Row>
             {hasMore && (
               <div className="text-center">
-                <Button onClick={() => setCurrentPage(prevPage => prevPage + 1)}>Vedi altri</Button>
+                <Button variant='outline-light' onClick={() => setCurrentPage(prevPage => prevPage + 1)}>SEE MORE</Button>
               </div>
             )}
           </Col>
@@ -148,6 +149,7 @@ function AllGames() {
                 </Card.Body>
               </Card>
             )}
+            <YouTubeVideos/>
           </Col>
         </Row>
       </Container>
