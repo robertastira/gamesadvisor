@@ -162,8 +162,8 @@ function DetailsPage() {
                             <h3 className='review-card-text'>Last Reviews</h3>
                             {reviews.slice(0, visibleReviews).map((review, index) => (
                                 <div key={index} className="review-item">
-                                    <p className="review-text">{review.text}</p>
-                                    <p className="review-date">{new Date(review.created).toLocaleDateString()}</p>
+                                    <p className="review-card-text1">{review.text}</p>
+                                    <p className="review-card-text1">{new Date(review.created).toLocaleDateString()}</p>
                                 </div>
                             ))}
                             {visibleReviews < reviews.length && (
