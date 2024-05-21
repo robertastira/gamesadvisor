@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import YouTubeVideos from './YoutubeVideos';
 
 const API_KEY = '0faeb51fade34fd39d9f8912acddcb2d';
-const PAGE_SIZE = 50;
+const PAGE_SIZE = 27;
 const futureDate = new Date(2025, 0, 1); 
 const formattedFutureDate = futureDate.toISOString().split('T')[0];
 const earliestDate = '1970-01-01'; 

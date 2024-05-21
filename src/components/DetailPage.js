@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import StarRating from './StarRating';
-
+import PostReview from './PostReview';
 
 function DetailsPage() {
     const { gameId } = useParams();
@@ -18,6 +18,7 @@ function DetailsPage() {
     const [liked, setLiked] = useState(false);
     const [reviews, setReviews] = useState([]);
     const [visibleReviews, setVisibleReviews] = useState(5);
+    const [userReviews, setUserReviews] = useState([]);
 
     useEffect(() => {
         fetchGameDetails();
@@ -65,6 +66,10 @@ function DetailsPage() {
 
     const showMoreReviews = () => {
         setVisibleReviews(prev => prev + 5);
+    };
+
+    const addReview = (review) => {
+        setUserReviews([review, ...userReviews]);
     };
 
     return (
@@ -136,28 +141,22 @@ function DetailsPage() {
                             }}
                         />
                         
-                        <Card className='details-card-bg mb-3'>
-                            <Card.Body>
-                                <Card.Title className='review-card-text'>Leave a Review</Card.Title>
-                                <Form className='title-font'>
-                                    <Form.Group controlId="formUsername" className='review-card-text1 mt-2'>
-                                        <Form.Control type="text" placeholder="Username" />
-                                    </Form.Group>
+                        <PostReview addReview={addReview} />
+                        
+                        <h3 className='review-card-text mt-4'>Your Reviews</h3>
+                        {userReviews.length > 0 ? (
+                            userReviews.map((review, index) => (
+                                <div key={index} className="review-item">
+                                    <p className="review-text">{review.text}</p>
+                                    <p className="review-date">{new Date(review.created).toLocaleDateString()}</p>
+                                    <p className="review-username">by {review.username}</p>
+                                    <p className="review-title">{review.title}</p>
+                                </div>
+                            ))
+                        ) : (
+                            <p className="review-text">No reviews yet. Be the first to leave a review!</p>
+                        )}
 
-                                    <Form.Group controlId="formEmail" className='review-card-text1 mt-2'>
-                                        <Form.Control type="text" placeholder="Review Title" />
-                                    </Form.Group>
-
-                                    <Form.Group controlId="formPassword" className='review-card-text1 mt-2'>
-                                        <Form.Control type="password" placeholder="Your Review" />
-                                    </Form.Group>
-
-                                    <Button variant="dark" className='login-button mt-3' type="submit">
-                                        S E N D
-                                    </Button>
-                                </Form>
-                            </Card.Body>
-                        </Card>
                         <StarRating />
                     </Col>
                 </Row>
