@@ -15,63 +15,89 @@ const GameCard = ({ game }) => {
   const ratingTextColor = game.rating > 3 ? 'green' : 'red';
   const [liked, setLiked] = useState(false);
 
+  useEffect(() => {
+    checkIfLiked();
+  }, []);
+
   const toggleLike = () => {
-    setLiked(!liked);
+    const newLikedState = !liked;
+    setLiked(newLikedState);
+    updateFavorites(newLikedState);
+  };
+
+  const checkIfLiked = () => {
+    const favorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
+    if (favorites.includes(game.id)) {
+      setLiked(true);
+    }
+  };
+
+  const updateFavorites = (isLiked) => {
+    const favorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
+    if (isLiked) {
+      favorites.push(game.id);
+    } else {
+      const index = favorites.indexOf(game.id);
+      if (index > -1) {
+        favorites.splice(index, 1);
+      }
+    }
+    sessionStorage.setItem('favorites', JSON.stringify(favorites));
   };
 
   return (
     <Col md={3} className="mb-4">
-  <Card className="card-bg text-white" style={{ height: '420px', position: 'relative', borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
-    <Card.Img variant="top" src={game.background_image} alt={game.name} style={{ height: '200px', objectFit: 'cover', borderRadius: '0' }} />
-    <div style={{ position: 'absolute', top: '10px', right: '10px', zIndex: '1' }}>
-      <div
-        className="rating-circle"
-        style={{
-          backgroundColor: ratingTextColor === 'green' ? 'lightgreen' : 'lightcoral',
-          color: ratingTextColor,
-          borderRadius: '50%',
-          width: '40px',
-          height: '40px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: '1.1rem',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
-          textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)', 
-          fontWeight: 'bold',
-        }}
-      >
-        {game.rating}
-      </div>
-      <span 
-        className="heart-icon"
-        onClick={toggleLike} 
-        role="img" 
-        aria-label="Like"
-        style={{
-          fontSize: '40px', 
-          cursor: 'pointer', 
-          color: liked ? 'red' : 'white',
-          transition: 'color 0.3s',
-          marginLeft: '-5px'
-        }}
-      >
-        {liked ? '❤️' : '🤍'}
-      </span>
-    </div>
-    <Card.Body className="d-flex flex-column justify-content-between">
-      <div>
-        <Card.Title className="detailed-card-text">{game.name}</Card.Title>
-        <Card.Text className="detailed-card-text2">Release date: {game.released}</Card.Text>
-      </div>
-      <div className="mt-auto">
-        <Link to={`/details/${game.id}`}>
-          <Button variant="outline-light" size="lg" className="btn-details detailed-card-text2" style={{ width: '100%' }}>I N F O</Button>
-        </Link>
-      </div>
-    </Card.Body>
-  </Card>
-</Col>
+      <Card className="card-bg text-white" style={{ height: '420px', position: 'relative', borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+        <Card.Img variant="top" src={game.background_image} alt={game.name} style={{ height: '200px', objectFit: 'cover', borderRadius: '0' }} />
+        <div style={{ position: 'absolute', top: '10px', right: '10px', zIndex: '1' }}>
+          <div
+            className="rating-circle"
+            style={{
+              backgroundColor: ratingTextColor === 'green' ? 'lightgreen' : 'lightcoral',
+              color: ratingTextColor,
+              borderRadius: '50%',
+              width: '40px',
+              height: '40px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: '1.1rem',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+              fontWeight: 'bold',
+            }}
+          >
+            {game.rating}
+          </div>
+          <span 
+            className="heart-icon"
+            onClick={toggleLike} 
+            role="img" 
+            aria-label="Like"
+            style={{
+              fontSize: '40px', 
+              cursor: 'pointer', 
+              color: liked ? 'red' : 'white',
+              transition: 'color 0.3s',
+              marginLeft: '-5px'
+            }}
+          >
+            {liked ? '❤️' : '🤍'}
+          </span>
+        </div>
+        <Card.Body className="d-flex flex-column justify-content-between">
+          <div>
+            <Card.Title className="detailed-card-text">{game.name}</Card.Title>
+            <Card.Text className="detailed-card-text2">Release date: {game.released}</Card.Text>
+          </div>
+          <div className="mt-auto">
+            <Link to={`/details/${game.id}`}>
+              <Button variant="outline-light" size="lg" className="btn-details detailed-card-text2" style={{ width: '100%' }}>I N F O</Button>
+            </Link>
+          </div>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 

@@ -34,7 +34,7 @@ function TopNavbar() {
                 Last Releases
               </NavDropdown.Item></Link>
             </NavDropdown>
-            <Nav.Link href="#aboutus">About Us</Nav.Link>
+            <Nav.Link as={Link} to="/favorites">Favorites</Nav.Link>
           </Nav>
           <Nav.Link href="#action2" className='me-2'>
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-globe2" viewBox="0 0 16 16">

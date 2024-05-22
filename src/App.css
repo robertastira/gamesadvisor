@@ -514,3 +514,12 @@
   border: none !important; 
   border-radius: 0 !important; 
 }
+
+
+.reviews-text1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  color: white;
+}

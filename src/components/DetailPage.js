@@ -83,10 +83,33 @@ function DetailsPage() {
     useEffect(() => {
         fetchGameDetails();
         fetchGameReviews();
+        loadUserReviews();
+        checkIfLiked();
     }, [gameId]);
 
     const toggleLike = () => {
         setLiked(!liked);
+        updateFavorites(!liked);
+    };
+
+    const checkIfLiked = () => {
+        const favorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
+        if (favorites.includes(gameId)) {
+            setLiked(true);
+        }
+    };
+
+    const updateFavorites = (isLiked) => {
+        const favorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
+        if (isLiked) {
+            favorites.push(gameId);
+        } else {
+            const index = favorites.indexOf(gameId);
+            if (index > -1) {
+                favorites.splice(index, 1);
+            }
+        }
+        sessionStorage.setItem('favorites', JSON.stringify(favorites));
     };
 
     const fetchGameDetails = () => {
@@ -129,7 +152,16 @@ function DetailsPage() {
     };
 
     const addReview = (review) => {
-        setUserReviews([review, ...userReviews]);
+        const updatedReviews = [review, ...userReviews];
+        setUserReviews(updatedReviews);
+        sessionStorage.setItem(`userReviews_${gameId}`, JSON.stringify(updatedReviews));
+    };
+
+    const loadUserReviews = () => {
+        const storedReviews = sessionStorage.getItem(`userReviews_${gameId}`);
+        if (storedReviews) {
+            setUserReviews(JSON.parse(storedReviews));
+        }
     };
 
     return (
@@ -162,8 +194,8 @@ function DetailsPage() {
                             <h3 className='review-card-text'>Last Reviews</h3>
                             {reviews.slice(0, visibleReviews).map((review, index) => (
                                 <div key={index} className="review-item">
-                                    <p className="review-card-text1">{review.text}</p>
-                                    <p className="review-card-text1">{new Date(review.created).toLocaleDateString()}</p>
+                                    <p className="detailed-card-text3">{review.text}</p>
+                                    <p className="detailed-card-text3">{new Date(review.created).toLocaleDateString()}</p>
                                 </div>
                             ))}
                             {visibleReviews < reviews.length && (
@@ -207,17 +239,17 @@ function DetailsPage() {
                         {userReviews.length > 0 ? (
                             userReviews.map((review, index) => (
                                 <div key={index} className="review-item">
-                                    <p className="review-text">{review.text}</p>
-                                    <p className="review-date">{new Date(review.created).toLocaleDateString()}</p>
-                                    <p className="review-username">by {review.username}</p>
-                                    <p className="review-title">{review.title}</p>
+                                    <p className="reviews-text1">{review.title}</p>
+                                    <p className="reviews-text1">{review.text}</p>
+                                    <p className="reviews-text1">{review.username}</p>
+                                    <p className="reviews-text1">{new Date(review.created).toLocaleDateString()}</p>
                                 </div>
                             ))
                         ) : (
-                            <p className="review-text">No reviews yet. Be the first to leave a review!</p>
+                            <p className="reviews-text1">No reviews yet. Be the first to add a review!</p>
                         )}
 
-                        <StarRating />
+                    <StarRating/>
                     </Col>
                 </Row>
             </Container>
