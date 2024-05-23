@@ -202,7 +202,7 @@
   font-weight: 200;
   font-style: normal;
   font-size: 17px;
-  color:  rgb(15, 15, 15);
+  color:  rgb(255, 255, 255);
 
 }
 
@@ -211,7 +211,7 @@
   font-weight: 200;
   font-style: normal;
   font-size: 13px;
-  color:  rgb(15, 15, 15);
+  color:  rgb(255, 255, 255);
 
 }
 
@@ -522,4 +522,8 @@
   font-style: normal;
   font-size: 18px;
   color: white;
+}
+
+.favourites-row{
+  height: 100vh;
 }

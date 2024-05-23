@@ -58,7 +58,7 @@ function FavoritesPage() {
         <Container fluid>
             <TopNavbar />
             <Container>
-                <Row>
+                <Row className='favourites-row'>
                     <Col>
                         <h1 className='title-details'>Liked Ones</h1>
                         {games.length > 0 ? (
@@ -74,7 +74,7 @@ function FavoritesPage() {
                                 </Card>
                             ))
                         ) : (
-                            <p className="reviews-text1">No favorite games yet. Add some!</p>
+                            <p className="reviews-text1">No favourites games yet. Add some!</p>
                         )}
                     </Col>
                     <Col>
