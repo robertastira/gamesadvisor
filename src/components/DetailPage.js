@@ -18,10 +18,12 @@ const PostReview = ({ addReview }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newReview = {
+            id: Date.now(), // Unique ID for the review
             username,
             title: reviewTitle,
             text: reviewText,
             created: new Date().toISOString(),
+            likes: 0,
         };
         addReview(newReview);
         setUsername('');
@@ -157,6 +159,23 @@ function DetailsPage() {
         sessionStorage.setItem(`userReviews_${gameId}`, JSON.stringify(updatedReviews));
     };
 
+    const deleteReview = (reviewId) => {
+        const updatedReviews = userReviews.filter(review => review.id !== reviewId);
+        setUserReviews(updatedReviews);
+        sessionStorage.setItem(`userReviews_${gameId}`, JSON.stringify(updatedReviews));
+    };
+
+    const likeReview = (reviewId) => {
+        const updatedReviews = userReviews.map(review => {
+            if (review.id === reviewId) {
+                return { ...review, likes: review.likes + 1 };
+            }
+            return review;
+        });
+        setUserReviews(updatedReviews);
+        sessionStorage.setItem(`userReviews_${gameId}`, JSON.stringify(updatedReviews));
+    };
+
     const loadUserReviews = () => {
         const storedReviews = sessionStorage.getItem(`userReviews_${gameId}`);
         if (storedReviews) {
@@ -243,6 +262,14 @@ function DetailsPage() {
                                     <p className="reviews-text1">{review.text}</p>
                                     <p className="reviews-text1">{review.username}</p>
                                     <p className="reviews-text1">{new Date(review.created).toLocaleDateString()}</p>
+                                    <div>
+                                        <Button variant="outline-light" onClick={() => likeReview(review.id)}>
+                                            👍 {review.likes}
+                                        </Button>
+                                        <Button className='ms-2' variant="outline-danger" onClick={() => deleteReview(review.id)}>
+                                            🗑️
+                                        </Button>
+                                    </div>
                                 </div>
                             ))
                         ) : (

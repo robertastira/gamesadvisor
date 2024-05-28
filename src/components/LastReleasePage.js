@@ -64,7 +64,7 @@ function LastReleases() {
       <TopNavbar />
       <Container>
         <Row>
-          <Col md={8}>
+          <Col sm={12} md={8} >
             <h2 className='review-card-text'>Last Releases</h2>
             <Row className="d-flex">
               {recentGames.map(game => (
