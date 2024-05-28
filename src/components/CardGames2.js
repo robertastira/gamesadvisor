@@ -11,7 +11,7 @@ const API_KEY = '0faeb51fade34fd39d9f8912acddcb2d';
 const PAGE_SIZE = 24;
 const GAMES_API = `https://api.rawg.io/api/games?key=${API_KEY}&dates=${formattedSixMonthsAgo},${formattedCurrentDate}&platforms=18,1,7&ordering=-released&page_size=${PAGE_SIZE}`;
 
-const GameCard = ({ game }) => {
+const GameCard = ({ game, onRemove }) => {
   const ratingTextColor = game.rating > 3 ? 'green' : 'red';
   const [liked, setLiked] = useState(false);
 
@@ -49,7 +49,7 @@ const GameCard = ({ game }) => {
     <Col md={3} className="mb-4">
       <Card className="card-bg text-white" style={{ height: '420px', position: 'relative', borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
         <Card.Img variant="top" src={game.background_image} alt={game.name} style={{ height: '200px', objectFit: 'cover', borderRadius: '0' }} />
-        <div style={{ position: 'absolute', top: '10px', right: '10px', zIndex: '1' }}>
+        <div style={{ position: 'absolute', top: '10px', right: '10px', zIndex: '1', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div
             className="rating-circle"
             style={{
@@ -79,10 +79,25 @@ const GameCard = ({ game }) => {
               cursor: 'pointer', 
               color: liked ? 'red' : 'white',
               transition: 'color 0.3s',
-              marginLeft: '-5px'
+              marginTop: '5px'
             }}
           >
             {liked ? '❤️' : '🤍'}
+          </span>
+          <span 
+            className="remove-icon"
+            onClick={() => onRemove(game.id)} 
+            role="img" 
+            aria-label="Remove"
+            style={{
+              fontSize: '30px', 
+              cursor: 'pointer', 
+              color: 'white',
+              transition: 'color 0.3s',
+              marginTop: '5px'
+            }}
+          >
+            ❌
           </span>
         </div>
         <Card.Body className="d-flex flex-column justify-content-between">
@@ -101,12 +116,12 @@ const GameCard = ({ game }) => {
   );
 };
 
-const GameList = ({ games }) => {
+const GameList = ({ games, onRemove }) => {
   return (
     <Container>
       <Row>
         {games.map((game, index) => (
-          <GameCard key={index} game={game} />
+          <GameCard key={index} game={game} onRemove={onRemove} />
         ))}
       </Row>
     </Container>
@@ -115,18 +130,38 @@ const GameList = ({ games }) => {
 
 const CardGames = () => {
   const [games, setGames] = useState([]);
+  const [allGames, setAllGames] = useState([]);
 
   useEffect(() => {
     fetch(GAMES_API)
       .then(response => response.json())
-      .then(data => setGames(data.results))
+      .then(data => {
+        setGames(data.results);
+        setAllGames(data.results);
+      })
       .catch(error => console.log(error));
   }, []);
+
+  const fetchRandomGame = () => {
+    if (allGames.length === 0) return null;
+    const randomIndex = Math.floor(Math.random() * allGames.length);
+    return allGames[randomIndex];
+  };
+
+  const handleRemoveGame = (gameId) => {
+    const updatedGames = games.filter(game => game.id !== gameId);
+    const newGame = fetchRandomGame();
+    if (newGame) {
+      setGames([...updatedGames, newGame]);
+    } else {
+      setGames(updatedGames);
+    }
+  };
 
   return (
     <Container>
       <div className='row-text'>LAST RELEASES</div>
-      <GameList games={games} />
+      <GameList games={games} onRemove={handleRemoveGame} />
     </Container>
   );
 };
