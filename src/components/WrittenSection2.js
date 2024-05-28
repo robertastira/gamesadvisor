@@ -53,9 +53,9 @@ const WrittenSection2 = () => {
                     <div className='d-flex justify-content-start mt-2' key={index}>
                         <img src={game.background_image} alt={game.name} style={{ width: '180px', height: '180px', objectFit: 'cover', marginRight: '20px' }} />
                         <div>
-                            <h2 className='detailed-card-text5'>{game.name}</h2>
-                            <p className='detailed-card-text5'>Released: {game.released}</p>
-                            <p className='detailed-card-text5'>Rating: {game.rating}</p>
+                            <h2 className='detailed-card-textslider'>{game.name}</h2>
+                            <p className='detailed-card-textslider'>Released: {game.released}</p>
+                            <p className='detailed-card-textslider'>Rating: {game.rating}</p>
                         </div>
                     </div>
                 ))}
