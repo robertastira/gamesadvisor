@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import { BsFillXCircleFill } from 'react-icons/bs';
 import TopNavbar from './TopNavbar';
 import Footer from './Footer';
@@ -41,6 +40,7 @@ function FavoritesPage() {
 
     const loadFavorites = () => {
         const storedFavorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
+        setFavorites(storedFavorites);
         console.log('Loaded favorites:', storedFavorites); 
     };
 
@@ -78,7 +78,7 @@ function FavoritesPage() {
                         )}
                     </Col>
                     <Col>
-                    <h1 className='title-details'>Preview</h1>
+                        <h1 className='title-details'>Preview</h1>
                         {selectedGame && (
                             <Card className='details-card-bg mb-3'>
                                 <Card.Img variant="top" src={selectedGame.background_image} alt={selectedGame.name} />
