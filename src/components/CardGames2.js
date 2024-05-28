@@ -160,7 +160,8 @@ const CardGames = () => {
 
   return (
     <Container>
-      <div className='row-text'>LAST RELEASES</div>
+      <div className='row-text'>LAST RELEASES  <Link to="/lastreleases"><Button variant="outline-light" size="lg" className="text-align-end btn-details detailed-card-text2">SEE ALL</Button>
+      </Link> </div>
       <GameList games={games} onRemove={handleRemoveGame} />
     </Container>
   );
